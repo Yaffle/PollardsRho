@@ -1,0 +1,31 @@
+{
+  "name": "pollardsrho",
+  "version": "1.0.0",
+  "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection",
+  "main": "PollardsRho.js",
+  "scripts": {
+    "compile": "asc PollardsRho64.ts --outFile PollardsRho64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
+    "build": "node ./build.js PollardsRho64",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaffle/PollardsRho.git"
+  },
+  "keywords": [
+    "integer",
+    "factorization",
+    "Pollard's",
+    "rho",
+    "algorithm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaffle/PollardsRho/issues"
+  },
+  "homepage": "https://github.com/Yaffle/PollardsRho#readme",
+  "devDependencies": {
+    "assemblyscript": "^0.27.25"
+  }
+}
