@@ -48,13 +48,24 @@ function montgomeryTransform(x:u64, n:u64):u64 {
   return mulMod(x, u64(-1) % n + 1, n);
 }
 
-function gcd(a:u64, b:u64):u64 {
-  while (b !== 0) {
-    const r = a % b;
-    a = b;
-    b = r;
+export function gcdBinary(a:u64, b:u64):u64 {
+  if (a === 0) {
+    return b;
   }
-  return a;
+  if (b === 0) {
+    return a;
+  }
+  const z = i64.ctz(a | b);
+  a >>= i64.ctz(a);
+  b >>= i64.ctz(b);
+  do {
+    const absDiff = a < b ? b - a : a - b; // abs(a - b)
+    b = a < b ? a : b; // min(a, b)
+    a = absDiff;
+    a >>= i64.ctz(a);
+  } while (a !== 0);
+  b <<= z;
+  return b;
 }
 
 function f(x:u64, c:u64, n:u64, nInv:u64):u64 {
@@ -71,7 +82,7 @@ function internal(n:u64, x0:u64, c:u64, maxSteps:u32):u64 {
   const nInv = modInverseMod2pow64(n);
   x0 = montgomeryTransform(x0, n);
   c = montgomeryTransform(c, n);
-  const one = montgomeryTransform(1, n);
+  const one = u64(1); // (2**64)**-1 mod n in Montgomery Form
   // Brent cycle detection:
   let hare = x0;
   let i = u32(0);
@@ -97,7 +108,7 @@ function internal(n:u64, x0:u64, c:u64, maxSteps:u32):u64 {
           product = montgomeryMultiply(product, d, n, nInv);
         }
         if (i === power || i % 128 === 0 || cycleFound) {
-          const factor = gcd(montgomeryReduce(0, product, n, nInv), n);
+          const factor = gcdBinary(product, n);
           if (factor !== 1) {
             if (factor !== n) {
               return factor;

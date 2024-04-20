@@ -1,6 +1,6 @@
 {
   "name": "pollardsrho",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection",
   "main": "PollardsRho.js",
   "scripts": {
