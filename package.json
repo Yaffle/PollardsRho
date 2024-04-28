@@ -1,7 +1,7 @@
 {
   "name": "pollardsrho",
-  "version": "1.0.2",
-  "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection",
+  "version": "1.0.3",
+  "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection, Miller–Rabin primality test",
   "main": "PollardsRho.js",
   "scripts": {
     "compile1": "asc PollardsRho64.ts --outFile PollardsRho64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
@@ -21,10 +21,13 @@
     "factorization",
     "Pollard's",
     "rho",
-    "algorithm"
+    "algorithm",
+    "Miller",
+    "Rabin",
+    "prime",
+    "testing"
   ],
   "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Yaffle/PollardsRho/issues"
   },
