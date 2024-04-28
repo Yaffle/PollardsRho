@@ -81,7 +81,7 @@ function internal(n, x0, c, maxSteps) {
     } while (i !== power);
     power <<= 1;
   }
-  return 0;
+  return 0n;
 }
 
 export default function PollardsRho(n, maxSteps) {

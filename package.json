@@ -1,11 +1,15 @@
 {
   "name": "pollardsrho",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection",
   "main": "PollardsRho.js",
   "scripts": {
-    "compile": "asc PollardsRho64.ts --outFile PollardsRho64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
-    "build": "node ./build.js PollardsRho64",
+    "compile1": "asc PollardsRho64.ts --outFile PollardsRho64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
+    "compile2": "asc isProbablyPrime64.ts --outFile isProbablyPrime64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
+    "compile3": "asc isPrime64.ts --outFile isPrime64.wasm --bindings raw -O3 --runtime stub --noExportMemory",
+    "build1": "node ./build.js PollardsRho64",
+    "build2": "node ./build.js isProbablyPrime64",
+    "build3": "node ./build.js isPrime64",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
