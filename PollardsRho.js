@@ -84,7 +84,7 @@ function internal(n, x0, c, maxSteps) {
   return 0n;
 }
 
-export default function PollardsRho(n, maxSteps) {
+function PollardsRho(n, maxSteps) {
   if (typeof n !== 'bigint') {
     throw new RangeError();
   }
@@ -103,3 +103,5 @@ export default function PollardsRho(n, maxSteps) {
   } while (g === n);
   return g;
 }
+
+export default PollardsRho;

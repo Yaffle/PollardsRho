@@ -13,10 +13,8 @@ fs.readFile(filePath, (err, data) => {
   }
   const byteArr = Array.from(data);
   const textString = `
-    const wasmCode = new Uint8Array([${byteArr.join(', ')}]);
-    const wasmModule = new WebAssembly.Module(wasmCode);
-    const exports = new WebAssembly.Instance(wasmModule).exports;
-    export default exports.${name};
+    let ${name} = typeof WebAssembly !== 'undefined' ? new WebAssembly.Instance(new WebAssembly.Module(new Uint8Array([${byteArr.join(', ')}]))).exports.${name} : null;
+    export default ${name};
   `;
   fs.writeFile(filePath1, textString, (err) => {
     if (err) {
