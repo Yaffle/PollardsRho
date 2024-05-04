@@ -25,11 +25,11 @@ Usage:
 ```
 import isPrime64 from './isPrime64.js';
 
-console.log(isPrime64(2n**64n - 585n)); // false
+console.log(isPrime64(2n**64n - 585n) === 0); // false
 
 
 import isPrime from './isPrime.js';
 
-console.log(PollardsRho(2n**64n - 585n)); // false
+console.log(isPrime(2n**64n - 585n)); // false
 
 ```
