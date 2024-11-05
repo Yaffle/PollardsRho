@@ -1,6 +1,6 @@
 {
   "name": "pollardsrho",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "integer factorization using Pollard's rho algorithm with Brent cycle detection, Miller–Rabin primality test",
   "main": "PollardsRho.js",
   "scripts": {
@@ -34,5 +34,6 @@
   "homepage": "https://github.com/Yaffle/PollardsRho#readme",
   "devDependencies": {
     "assemblyscript": "^0.27.25"
-  }
+  },
+  "type": "module"
 }
