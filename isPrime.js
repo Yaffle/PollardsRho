@@ -4,14 +4,14 @@ function log2(x) {
 }
 
 function modPow(base, exponent, modulus) {
+  // left-to-right method is preferred as the base is small
+  const e = exponent.toString(2);
   let accumulator = 1n;
-  while (exponent !== 0n) {
-    if (BigInt.asUintN(1, exponent) === 1n) {
-      exponent -= 1n;
+  for (let i = 0; i < e.length; i += 1) {
+    accumulator = (accumulator * accumulator) % modulus;
+    if (e.charCodeAt(i) !== '0'.charCodeAt(0)) {
       accumulator = (accumulator * base) % modulus;
     }
-    exponent >>= 1n;
-    base = (base * base) % modulus;
   }
   return accumulator;
 }
