@@ -9,7 +9,7 @@ function modPow(base, exponent, modulus) {
   let accumulator = 1n;
   for (let i = 0; i < e.length; i += 1) {
     accumulator = (accumulator * accumulator) % modulus;
-    if (e.charCodeAt(i) !== '0'.charCodeAt(0)) {
+    if (+e.charCodeAt(i) !== +'0'.charCodeAt(0)) {
       accumulator = (accumulator * base) % modulus;
     }
   }
